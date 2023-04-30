@@ -36,35 +36,35 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):
     
     # page title
-    st.title('مرض السكري using ML')
+    st.title('مرض السكري (ML)')
     
     
     # getting the input data from the user
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
+        Pregnancies = st.text_input('عدد حالات الحمل')
         
     with col2:
-        Glucose = st.text_input('Glucose Level')
+        Glucose = st.text_input('مستوى الجلوكوز')
     
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
+        BloodPressure = st.text_input('ضغط الدم')
     
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
+        SkinThickness = st.text_input('سماكة الجلد')
     
     with col2:
-        Insulin = st.text_input('Insulin Level')
+        Insulin = st.text_input('مستوى الانسولين')
     
     with col3:
-        BMI = st.text_input('BMI value')
+        BMI = st.text_input('مؤشر كتلة الجسم')
     
     with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+        DiabetesPedigreeFunction = st.text_input('نسب السكري')
     
     with col2:
-        Age = st.text_input('Age of the Person')
+        Age = st.text_input('عمر الشخص')
     
     
     # code for Prediction
@@ -72,13 +72,13 @@ if (selected == 'Diabetes Prediction'):
     
     # creating a button for Prediction
     
-    if st.button('Diabetes Test Result'):
+    if st.button('اختبار مرض السكري'):
         diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
         
         if (diab_prediction[0] == 1):
-          diab_diagnosis = 'The person is diabetic'
+          diab_diagnosis = 'الشخص مريض بالسكري'
         else:
-          diab_diagnosis = 'The person is not diabetic'
+          diab_diagnosis = 'الشخص غير مريض بالسكري'
         
     st.success(diab_diagnosis)
 
@@ -89,21 +89,21 @@ if (selected == 'Diabetes Prediction'):
 if (selected == 'Heart Disease Prediction'):
     
     # page title
-    st.title('مرض القلب using ML')
+    st.title('مرض القلب (ML)')
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        age = st.text_input('Age')
+        age = st.text_input('عمر الشخص')
         
     with col2:
-        sex = st.text_input('Sex')
+        sex = st.text_input('الجنس')
         
     with col3:
-        cp = st.text_input('Chest Pain types')
+        cp = st.text_input('انواع آلام الصدر')
         
     with col1:
-        trestbps = st.text_input('Resting Blood Pressure')
+        trestbps = st.text_input('راحة ضغط الدم')
         
     with col2:
         chol = st.text_input('Serum Cholestoral in mg/dl')
@@ -140,13 +140,13 @@ if (selected == 'Heart Disease Prediction'):
     
     # creating a button for Prediction
     
-    if st.button('Heart Disease Test Result'):
+    if st.button('اختبار مرض القلب'):
         heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
         
         if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
+          heart_diagnosis = 'الشخص مريض بالقلب'
         else:
-          heart_diagnosis = 'The person does not have any heart disease'
+          heart_diagnosis = 'الشخص غير مريض بالقلب'
         
     st.success(heart_diagnosis)
         
