@@ -12,7 +12,7 @@ from streamlit_option_menu import option_menu
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
+lung_cuncer_model = pickle.load(open('lung_cancer.sav', 'rb'))
 
 heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 
@@ -25,7 +25,7 @@ with st.sidebar:
     
     selected = option_menu('Multiple Disease Prediction System',
                           
-                          ['Diabetes Prediction',
+                          ['Lung Cancer Prediction',
                            'Heart Disease Prediction',
                            'Parkinsons Prediction'],
                           icons=['activity','heart','person'],
@@ -33,54 +33,42 @@ with st.sidebar:
     
     
 # Diabetes Prediction Page
-if (selected == 'Diabetes Prediction'):
+if (selected == 'Lung Cancer Prediction'):
     
     # page title
-    st.title('مرض السكري (ML)')
+    st.title('Lung Cancer Prediction using ML')
     
     
     # getting the input data from the user
-    col1, col2, col3 = st.columns(3)
+    col1, col2,  = st.columns(2)
     
     with col1:
-        Pregnancies = st.text_input('عدد حالات الحمل')
+        Pregnancies = st.text_input('Age')
         
     with col2:
-        Glucose = st.text_input('مستوى الجلوكوز')
-    
-    with col3:
-        BloodPressure = st.text_input('ضغط الدم')
+        Glucose = st.text_input('Smokes')
     
     with col1:
-        SkinThickness = st.text_input('سماكة الجلد')
+        SkinThickness = st.text_input('AreaQ')
     
     with col2:
-        Insulin = st.text_input('مستوى الانسولين')
-    
-    with col3:
-        BMI = st.text_input('مؤشر كتلة الجسم')
-    
-    with col1:
-        DiabetesPedigreeFunction = st.text_input('نسب السكري')
-    
-    with col2:
-        Age = st.text_input('عمر الشخص')
+        Insulin = st.text_input('Alkhol')
     
     
     # code for Prediction
-    diab_diagnosis = ''
+    Lung_diagnosis = ''
     
     # creating a button for Prediction
     
-    if st.button('اختبار مرض السكري'):
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+    if st.button('Lung Cuncer Test Result'):
+        Lung_prediction = lung_cuncer_model.predict([[Age , Smokes , AreaQ , Alkhol]])
         
-        if (diab_prediction[0] == 1):
-          diab_diagnosis = 'الشخص مريض بالسكري'
+        if (Lung_prediction[0] == 1):
+          Lung_diagnosis = 'The person has the cancer'
         else:
-          diab_diagnosis = 'الشخص غير مريض بالسكري'
+          Lung_diagnosis = 'The person has not the cancer'
         
-    st.success(diab_diagnosis)
+    st.success(Lung_diagnosis)
 
 
 
