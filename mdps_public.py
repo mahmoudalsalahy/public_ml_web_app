@@ -12,7 +12,7 @@ from streamlit_option_menu import option_menu
 
 # loading the saved models
 
-lung_cuncer_model = pickle.load(open('lung_cancer.sav', 'rb'))
+lung_cuncer_model = pickle.load(open('C:\Users\HP\OneDrive - New Mansoura University\Desktop\machine learning pro\saved models\lung_cancer.sav', 'rb'))
 
 heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 
