@@ -4,7 +4,7 @@ Created on Sun May  8 21:01:15 2022
 
 @author: siddhardhan
 """
-!pip install steamlit
+
 
 
 import pickle
