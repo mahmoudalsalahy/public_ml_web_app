@@ -60,13 +60,13 @@ if (selected == 'Lung Cancer Prediction'):
         SMOKING = st.text_input('SMOKING')
     
     with col3:
-        YELLOW_FINGERS = st.text_input('YELLOW_FINGERS')
+        YELLOW_FINGERS = st.text_input('YELLOW FINGERS')
     
     with col1:
         ANXIETY = st.text_input('ANXIETY')
     
     with col2:
-        PEER_PRESSURE = st.text_input('PEER_PRESSURE')
+        PEER_PRESSURE = st.text_input('PEER PRESSURE')
     
     with col3:
         CONSUMING = st.text_input('ALCOHOL CONSUMING')
